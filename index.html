@@ -1,36 +1,110 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="images/gift.png" type="image/x-icon">
-  <link rel="stylesheet" href="css/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas</title>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
 
-  <!-- Document Title -->
-  <title>I Have Something</title>
+    <style>
+        body {
+            background-color: #151522;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 5s;
+        }
+
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            cursor: pointer;
+            position: relative;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: none;
+            border: none;
+        }
+
+        button div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: white;
+            border-radius: 100%;
+            filter: blur(150px);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            animation: mystery-box-animation 3s infinite ease-in-out;
+        }
+
+        @keyframes mystery-box-animation {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-50px);
+                opacity: 30%;
+            }
+        }
+
+        .transition-background {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            min-height: 100vh;
+            background-color: transparent;
+            transition: 0.5s;
+            background-color: #151522;
+            opacity: 0;
+            z-index: -10;
+        }
+
+        .close {
+            opacity: 1;
+            z-index: 10;
+        }
+    </style>
 </head>
 
 <body>
-  <!-- Background -->
-  <div class="night"></div>
+    <div class="container">
+        <button id="box">
+            <div></div>
+            <img src="mystery-box.png" alt="">
+        </button>
+    </div>
 
-  <!-- Title -->
-  <h1 class="title"></h1>
+    <div id="transition" class="transition-background"></div>
 
-  <!-- Button -->
-  <div style="position: absolute; top: 60vh; width: 100%; display: flex; justify-content: center;">
-    <a href="flower.html" class="btn">
-      <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
-        <path
-          d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z">
-        </path>
-      </svg>
+    <script>
+        document.getElementById('box').addEventListener('click', function () {
+            document.getElementById('transition').classList.add('close')
 
-      <span class="text">Open</span>
-    </a>
-  </div>
-
-  <script src="js/index.js"></script>
+            setTimeout(() => {
+                window.location.href = 'merry-christmas.html'
+            }, 500);
+        })
+    </script>
 </body>
 
 </html>
